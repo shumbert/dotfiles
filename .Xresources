@@ -1,3 +1,18 @@
+! URxvt base configuration
+URxvt.font: xft:hack:size=10
+URxvt.scrollBar: false
+URxvt*scrollTtyOutput: false
+URxvt*scrollWithBuffer: true
+URxvt*scrollTtyKeypress: true
+
+! URxvt Perl extensions
+URxvt.perl-ext-common: default,matcher,resize-font
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+URxvt.resize-font.smaller: C-Down
+URxvt.resize-font.bigger: C-Up
+
+
 xterm*faceName: Hack
 xterm*faceSize: 10
 xterm*renderFont: true

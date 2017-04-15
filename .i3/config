@@ -35,15 +35,15 @@ workspace_auto_back_and_forth yes
 #
 # Workspaces
 #
-set $workspace1 "1: "
-set $workspace2 "2: "
-set $workspace3 "3: "
-set $workspace4 "4: "
-set $workspace5 "5: "
-set $workspace6 "6: "
-set $workspace7 "7: "
-set $workspace8 "8: "
-set $workspace9 "9: "
+set $workspace1  "1: "
+set $workspace2  "2: "
+set $workspace3  "3: "
+set $workspace4  "4: "
+set $workspace5  "5: "
+set $workspace6  "6: "
+set $workspace7  "7: "
+set $workspace8  "8: "
+set $workspace9  "9: "
 set $workspace10 "10: "
 
 #
@@ -118,14 +118,14 @@ bindsym $mod+Next  workspace next
 # Scratchpad
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
+bindsym $mod+p [class="Pavucontrol"] scratchpad show
+bindsym $mod+bracketleft [class="Wicd-client.py"] scratchpad show
+bindsym $mod+bracketright [class="Gedit"] scratchpad show
 
 # Exec stuff
-bindsym $mod+Return  exec --no-startup-id xterm
+bindsym $mod+Return  exec urxvt
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+shift+x exec i3lock -c 000000
-
-# Speed dials
-bindsym $mod+o [class="Google-chrome"] focus
 
 # More fancy key bindings
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
@@ -184,23 +184,36 @@ bar {
 
 
 #
-# Conditional settings
+# Assign to workspaces
 #
-assign [class="Google-chrome"] $workspace1
-assign [class="Nautilus"]      $workspace3
+assign [class="Google-chrome"]      $workspace1
+assign [class="Thunderbird"]        $workspace2
+assign [class="Nautilus"]           $workspace3
+for_window [class="Spotify"]        move to workspace $workspace10
+for_window [class="Pavucontrol"]    move scratchpad
+for_window [class="Wicd-client.py"] move scratchpad
+for_window [class="Gedit"]          move scratchpad
 
 #
 # Start up stuff
 #
-
 # Everytime i3 is (re)started
 exec_always feh --bg-scale /home/simal/wallpaper.jpg
-exec_always xrandr --output VGA-0 --primary
+exec_always xrandr --output HDMI-2 --off --output HDMI-1 --off --output DP-1 --off --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-2 --off
 
 # At login
 exec xrdb -load ~/.Xresources
+
 exec google-chrome
+exec thunderbird
 exec nautilus
-exec --no-startup-id i3-msg 'workspace $workspace4'
-exec --no-startup-id i3-msg 'exec xterm'
-exec --no-startup-id i3-msg 'workspace $workspace1'
+exec spotify
+
+exec pavucontrol
+exec wicd-client
+exec gedit
+
+#exec --no-startup-id i3-msg 'workspace $workspace4'
+#exec --no-startup-id i3-msg 'exec xterm'
+#exec --no-startup-id i3-msg 'workspace $workspace1'
+exec i3-msg "workspace $workspace4; exec urxvt; workspace $workspace1"
