@@ -24,6 +24,10 @@ set $urgent-bg-color     #e53935
 set $text-color          #f3f4f5
 set $inactive-text-color #676e7d
 
+set $i3lock "i3lock -c 000000"
+
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+
 #
 # Font and random stuff
 #
@@ -39,11 +43,11 @@ set $workspace1  "1: "
 set $workspace2  "2: "
 set $workspace3  "3: "
 set $workspace4  "4: "
-set $workspace5  "5: "
+set $workspace5  "5: "
 set $workspace6  "6: "
 set $workspace7  "7: "
-set $workspace8  "8: "
-set $workspace9  "9: "
+set $workspace8  "8: "
+set $workspace9  "9: "
 set $workspace10 "10: "
 
 #
@@ -125,7 +129,7 @@ bindsym $mod+bracketright [class="Gedit"] scratchpad show
 # Exec stuff
 bindsym $mod+Return  exec urxvt
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+shift+x exec i3lock -c 000000
+bindsym $mod+shift+x exec $i3lock
 
 # More fancy key bindings
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
@@ -140,7 +144,6 @@ bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute   0 toggle
 
 # Binding modes
 bindsym $mod+r mode "resize"
-
 mode "resize" {
         bindsym $left resize shrink width 10 px or 10 ppt
         bindsym $down resize grow height 10 px or 10 ppt
@@ -154,6 +157,19 @@ mode "resize" {
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
+}
+
+bindsym $mod+Delete mode "$mode_system"
+mode "$mode_system" {
+    bindsym l exec --no-startup-id $i3lock, mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id $i3lock && systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id $i3lock && systemctl hibernate, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 
 #
@@ -190,6 +206,8 @@ bar {
 assign [class="Google-chrome"]      $workspace1
 assign [class="Thunderbird"]        $workspace2
 assign [class="Nautilus"]           $workspace3
+assign [class="Virt-manager"]       $workspace8
+assign [class="VirtualBox"]         $workspace9
 for_window [class="Spotify"]        move to workspace $workspace10
 for_window [class="Pavucontrol"]    move scratchpad
 for_window [class="Wicd-client.py"] move scratchpad
@@ -208,13 +226,13 @@ exec xrdb -load ~/.Xresources
 exec google-chrome
 exec thunderbird
 exec nautilus
+exec virt-manager
+exec virtualbox
 exec spotify
 
 exec pavucontrol
 exec wicd-client
 exec gedit
 
-#exec --no-startup-id i3-msg 'workspace $workspace4'
-#exec --no-startup-id i3-msg 'exec xterm'
-#exec --no-startup-id i3-msg 'workspace $workspace1'
 exec i3-msg "workspace $workspace4; exec urxvt; workspace $workspace1"
+exec i3-msg "workspace $workspace5; exec urxvt; workspace $workspace1"
