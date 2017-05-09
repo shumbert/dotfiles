@@ -169,6 +169,7 @@ client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color       
 # Status bar
 #
 bar {
+        font pango:SFNS Display 10, FontAwesome 10
         position top
         status_command i3blocks -c ~/.i3/i3blocks.conf
         tray_output primary
