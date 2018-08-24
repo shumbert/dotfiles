@@ -1,2 +1,5 @@
 # dotfiles
-Debian Testing configuration files
+Use the deploy shell script to create symlinks:
+```
+deploy_dotfiles <machine>
+```
