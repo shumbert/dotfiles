@@ -1,0 +1,21 @@
+#! /bin/sh
+
+#
+# Functions
+#
+
+#
+# Main
+#
+if [ $# -ne 1 ]; then
+  echo "usage: $(basename $0) dotfiles_directory"
+  exit 1
+fi
+
+dotfiles_directory="$(dirname $0)/$1"
+if [ ! -d "${dotfiles_directory}" ]; then
+  echo "${dotfiles_directory} is not a directory"
+  exit 1
+fi
+
+echo $dotfiles_directory
