@@ -1,3 +1,0 @@
-# Ignore vim-plug plugins directories
-plugged/*
-!plugged/.keep
