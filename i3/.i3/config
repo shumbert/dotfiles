@@ -119,6 +119,10 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 bindsym $mod+Prior workspace prev
 bindsym $mod+Next  workspace next
 
+# Move focused window between monitors
+bindsym $mod+Shift+greater move container to output right
+bindsym $mod+Shift+less move container to output left
+
 # Scratchpad
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
@@ -206,6 +210,7 @@ bar {
 assign [class="Google-chrome"]      $workspace1
 assign [class="Thunderbird"]        $workspace2
 assign [class="Nautilus"]           $workspace3
+assign [class="SpiderOakONE"]       $workspace6
 assign [class="Virt-manager"]       $workspace8
 assign [class="VirtualBox"]         $workspace9
 for_window [class="Spotify"]        move to workspace $workspace10
@@ -224,11 +229,12 @@ exec_always xrandr --output HDMI-2 --off --output HDMI-1 --off --output DP-1 --o
 exec xrdb -load ~/.Xresources
 
 exec google-chrome
-exec thunderbird
+#exec thunderbird
 exec nautilus
+#exec SpiderOakONE
 exec virt-manager
 exec virtualbox
-exec spotify
+#exec spotify
 
 exec pavucontrol
 exec wicd-client
