@@ -207,7 +207,7 @@ bar {
 #
 # Assign to workspaces
 #
-assign [class="Google-chrome"]      $workspace1
+assign [class="Firefox"]            $workspace1
 assign [class="Thunderbird"]        $workspace2
 assign [class="Nautilus"]           $workspace3
 assign [class="SpiderOakONE"]       $workspace6
@@ -228,13 +228,14 @@ exec_always xrandr --output HDMI-2 --off --output HDMI-1 --off --output DP-1 --o
 # At login
 exec xrdb -load ~/.Xresources
 
-exec google-chrome
-#exec thunderbird
+exec ff personal
+exec ff browse
+exec thunderbird
 exec nautilus
-#exec SpiderOakONE
+exec SpiderOakONE
 exec virt-manager
 exec virtualbox
-#exec spotify
+exec spotify
 
 exec pavucontrol
 exec wicd-client
