@@ -128,7 +128,7 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 bindsym $mod+p [class="Pavucontrol"] scratchpad show
 bindsym $mod+bracketleft [class="Wicd-client.py"] scratchpad show
-bindsym $mod+bracketright [class="Gedit"] scratchpad show
+bindsym $mod+bracketright [class="Org.gnome.gedit"] scratchpad show
 
 # Exec stuff
 bindsym $mod+Return  exec urxvt
@@ -207,16 +207,16 @@ bar {
 #
 # Assign to workspaces
 #
-assign [class="Firefox"]            $workspace1
-assign [class="Thunderbird"]        $workspace2
-assign [class="Nautilus"]           $workspace3
-assign [class="SpiderOakONE"]       $workspace6
-assign [class="Virt-manager"]       $workspace8
-assign [class="VirtualBox"]         $workspace9
-for_window [class="Spotify"]        move to workspace $workspace10
-for_window [class="Pavucontrol"]    move scratchpad
-for_window [class="Wicd-client.py"] move scratchpad
-for_window [class="Gedit"]          move scratchpad
+assign [class="Firefox"]             $workspace1
+assign [class="Thunderbird"]         $workspace2
+assign [class="Nautilus"]            $workspace3
+assign [class="SpiderOakONE"]        $workspace6
+assign [class="Virt-manager"]        $workspace8
+assign [class="VirtualBox"]          $workspace9
+for_window [class="Spotify"]         move to workspace $workspace10
+for_window [class="Pavucontrol"]     move scratchpad
+for_window [class="Wicd-client.py"]  move scratchpad
+for_window [class="Org.gnome.gedit"] move scratchpad
 
 #
 # Start up stuff
