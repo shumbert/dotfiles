@@ -214,7 +214,7 @@ bar {
 # Assign to workspaces
 #
 assign [class="VirtualBox"]         $workspace1
-assign [class="Google-chrome"]      $workspace7
+assign [class="Firefox"]            $workspace7
 assign [class="Thunderbird"]        $workspace8
 assign [class="Wire"]               $workspace8
 assign [class="Nautilus"]           $workspace9
@@ -233,7 +233,9 @@ exec_always xrandr --output HDMI-3 --off --output HDMI-2 --off --output HDMI-1 -
 exec xrdb -load ~/.Xresources
 
 exec virtualbox
-exec google-chrome
+exec ff browse
+exec ff personal
+exec ff lab
 exec thunderbird
 exec wire-desktop
 exec nautilus
