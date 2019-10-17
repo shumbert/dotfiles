@@ -4,4 +4,4 @@ if [ $# -ne 1 ];
     then echo "usage: ff <profile>"
     exit 0
 fi
-/snap/bin/firefox -no-remote -p ${1}
+/opt/firefox/firefox -no-remote -p ${1}
