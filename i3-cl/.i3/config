@@ -39,27 +39,27 @@ workspace_auto_back_and_forth yes
 #
 # Workspaces
 #
-# Left monitor
 set $workspace1  "1: "
 set $workspace2  "2: "
 set $workspace3  "3:"
 set $workspace4  "4:"
 set $workspace5  "5:"
-
-# Right monitor
 set $workspace6  "6: "
 set $workspace7  "7: "
 set $workspace8  "8: "
 set $workspace9  "9: "
 set $workspace10 "10: "
 
-workspace $workspace1  output HDMI-2
-#workspace $workspace2  output HDMI-2
-workspace $workspace6  output HDMI-3
-workspace $workspace7  output HDMI-3
-workspace $workspace8  output HDMI-3
-workspace $workspace9  output HDMI-3
-workspace $workspace10 output HDMI-3
+workspace $workspace1  output DP-1
+workspace $workspace2  output DP-1
+workspace $workspace3  output DP-1
+workspace $workspace4  output DP-1
+workspace $workspace5  output DP-1
+workspace $workspace6  output DP-2
+workspace $workspace7  output DP-2
+workspace $workspace8  output DP-2
+workspace $workspace9  output DP-2
+workspace $workspace10 output DP-2
 
 #
 # Keyboard bindings
@@ -133,8 +133,7 @@ bindsym $mod+Next  workspace next
 # Scratchpad
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
-bindsym $mod+p [class="Pavucontrol"] scratchpad show
-bindsym $mod+bracketleft [class="keepassxc"] scratchpad show
+bindsym $mod+bracketleft [class="Pavucontrol"] scratchpad show
 bindsym $mod+bracketright [class="Gedit"] scratchpad show
 
 # Exec stuff
@@ -215,13 +214,12 @@ bar {
 # Assign to workspaces
 #
 assign [class="VirtualBox"]         $workspace1
-assign [class="Google-chrome"]            $workspace7
+assign [class="Google-chrome"]      $workspace7
 assign [class="Thunderbird"]        $workspace8
 assign [class="Wire"]               $workspace8
 assign [class="Nautilus"]           $workspace9
 for_window [class="Spotify"]        move to workspace $workspace10
 for_window [class="Pavucontrol"]    move scratchpad
-for_window [class="keepassxc"]      move scratchpad
 for_window [class="Gedit"]          move scratchpad
 
 #
@@ -229,7 +227,7 @@ for_window [class="Gedit"]          move scratchpad
 #
 # Everytime i3 is (re)started
 exec_always feh --bg-scale /home/simal/.wallpaper.jpg
-exec_always xrandr --output HDMI-3 --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-2 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1 --off --output DP-3 --off --output DP-2 --off --output DP-1 --off
+exec_always xrandr --output HDMI-3 --off --output HDMI-2 --off --output HDMI-1 --off --output DP-3 --off --output DP-2 --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-1 --mode 1920x1080 --pos 0x0 --rotate normal
 
 # At login
 exec xrdb -load ~/.Xresources
@@ -242,8 +240,7 @@ exec nautilus
 exec spotify
 
 exec pavucontrol
-exec keepassxc
 exec gedit
 
-#exec i3-msg "workspace $workspace2; exec urxvt; workspace $workspace1"
-#exec i3-msg "workspace $workspace6; exec urxvt; workspace $workspace1"
+exec i3-msg "workspace $workspace2; exec urxvt; workspace $workspace1"
+exec i3-msg "workspace $workspace6; exec urxvt; workspace $workspace1"
