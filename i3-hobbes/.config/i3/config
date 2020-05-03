@@ -205,25 +205,29 @@ bar {
 
 
 #
-# Assign to workspaces
+# Assign properties to apps
 #
-assign [class="Firefox"]             $workspace1
-assign [class="Thunderbird"]         $workspace2
-assign [class="Nemo"]                $workspace3
-assign [class="SpiderOakONE"]        $workspace6
-assign [class="Virt-manager"]        $workspace8
-assign [class="VirtualBox"]          $workspace9
-for_window [class="Spotify"]         move to workspace $workspace10
-for_window [class="Pavucontrol"]     move scratchpad
-for_window [class="Wicd-client.py"]  move scratchpad
-for_window [class="Org.gnome.gedit"] move scratchpad
+assign [class="Firefox"]                  $workspace1
+assign [class="Thunderbird"]              $workspace2
+assign [class="Nemo"]                     $workspace3
+assign [class="SpiderOakONE"]             $workspace6
+assign [class="Virt-manager"]             $workspace8
+assign [class="VirtualBox"]               $workspace9
+for_window [class="Spotify"]              move to workspace $workspace10
+
+for_window [class="Pavucontrol"]          move scratchpad
+for_window [class="Wicd-client.py"]       move scratchpad
+for_window [class="Org.gnome.gedit"]      move scratchpad
+
+for_window [class="Nm-connection-editor"] floating enable
+
 
 #
 # Start up stuff
 #
 # Everytime i3 is (re)started
 exec_always feh --bg-scale /home/simal/.wallpaper.jpg
-#exec_always xrandr --output HDMI-2 --off --output HDMI-1 --off --output DP-1 --off --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-2 --off
+exec_always nm-applet
 
 # At login
 exec xrdb -load ~/.Xresources
