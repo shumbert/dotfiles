@@ -127,8 +127,7 @@ bindsym $mod+Shift+less move container to output left
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 bindsym $mod+p [class="Pavucontrol"] scratchpad show
-bindsym $mod+bracketleft [class="Wicd-client.py"] scratchpad show
-bindsym $mod+bracketright [class="Org.gnome.gedit"] scratchpad show
+bindsym $mod+bracketright [class="Gedit"] scratchpad show
 
 # Exec stuff
 bindsym $mod+Return  exec urxvt
@@ -205,24 +204,27 @@ bar {
 
 
 #
-# Assign to workspaces
+# Assign properties to apps
 #
-assign [class="Firefox"]             $workspace1
-assign [class="Thunderbird"]         $workspace2
-assign [class="Nautilus"]            $workspace3
-assign [class="SpiderOakONE"]        $workspace6
-assign [class="Virt-manager"]        $workspace8
-assign [class="VirtualBox"]          $workspace9
-for_window [class="Spotify"]         move to workspace $workspace10
-for_window [class="Pavucontrol"]     move scratchpad
-for_window [class="Wicd-client.py"]  move scratchpad
-for_window [class="Org.gnome.gedit"] move scratchpad
+assign [class="Firefox"]                  $workspace1
+assign [class="Thunderbird"]              $workspace2
+assign [class="Nemo"]                     $workspace3
+assign [class="SpiderOakONE"]             $workspace6
+assign [class="Virt-manager"]             $workspace8
+assign [class="VirtualBox"]               $workspace9
+for_window [class="Spotify"]              move to workspace $workspace10
+
+for_window [class="Pavucontrol"]          move scratchpad
+for_window [class="Gedit"]                move scratchpad
+
+for_window [class="Nm-connection-editor"] floating enable
 
 #
 # Start up stuff
 #
 # Everytime i3 is (re)started
 exec_always feh --bg-scale /home/simal/.wallpaper.jpg
+exec_always nm-applet
 exec_always xrandr --output HDMI-2 --off --output HDMI-1 --off --output DP-1 --off --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-2 --off
 
 # At login
@@ -231,14 +233,13 @@ exec xrdb -load ~/.Xresources
 exec ff personal
 exec ff browse
 exec thunderbird
-exec nautilus
+exec nemo
 exec SpiderOakONE
 exec virt-manager
 exec virtualbox
 exec spotify
 
 exec pavucontrol
-exec wicd-client
 exec gedit
 
 exec i3-msg "workspace $workspace4; exec urxvt; workspace $workspace1"
