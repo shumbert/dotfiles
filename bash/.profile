@@ -21,5 +21,12 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-# Add $GOPATH/bin to the path
-PATH="$PATH:$(go env GOPATH)/bin"
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
+if [ -x "$(command -v go)" ]; then
+    # Add $GOPATH/bin to the path
+    PATH="$PATH:$(go env GOPATH)/bin"
+fi
