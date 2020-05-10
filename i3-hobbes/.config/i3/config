@@ -12,7 +12,7 @@
 #
 # Some variables
 #
-set $mod   Mod4
+set $mod   Mod1
 set $left  j
 set $down  k
 set $up    l
@@ -39,16 +39,16 @@ workspace_auto_back_and_forth yes
 #
 # Workspaces
 #
-set $workspace1  "1: "
+set $workspace1  "1: "
 set $workspace2  "2: "
 set $workspace3  "3: "
 set $workspace4  "4: "
 set $workspace5  "5: "
 set $workspace6  "6: "
 set $workspace7  "7: "
-set $workspace8  "8: "
-set $workspace9  "9: "
-set $workspace10 "10: "
+set $workspace8  "8: "
+set $workspace9  "9: "
+set $workspace10 "10: "
 
 #
 # Keyboard bindings
@@ -126,8 +126,7 @@ bindsym $mod+Shift+less move container to output left
 # Scratchpad
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
-bindsym $mod+p [class="Pavucontrol"] scratchpad show
-bindsym $mod+bracketleft [class="Wicd-client.py"] scratchpad show
+bindsym $mod+bracketleft [class="Pavucontrol"] scratchpad show
 bindsym $mod+bracketright [class="Org.gnome.gedit"] scratchpad show
 
 # Exec stuff
@@ -211,8 +210,6 @@ assign [class="Firefox"]                  $workspace1
 assign [class="Thunderbird"]              $workspace2
 assign [class="Nemo"]                     $workspace3
 assign [class="SpiderOakONE"]             $workspace6
-assign [class="Virt-manager"]             $workspace8
-assign [class="VirtualBox"]               $workspace9
 for_window [class="Spotify"]              move to workspace $workspace10
 
 for_window [class="Pavucontrol"]          move scratchpad
@@ -232,18 +229,16 @@ exec_always nm-applet
 # At login
 exec xrdb -load ~/.Xresources
 
-#exec ff personal
-#exec ff browse
-#exec thunderbird
+exec ff personal
+exec ff browse
+exec /opt/thunderbird/thunderbird
 exec nemo
 #exec SpiderOakONE
 #exec virt-manager
-#exec virtualbox
 #exec spotify
 
-#exec pavucontrol
-#exec wicd-client
-#exec gedit
+exec pavucontrol
+exec gedit
 
-#exec i3-msg "workspace $workspace4; exec urxvt; workspace $workspace1"
-#exec i3-msg "workspace $workspace5; exec urxvt; workspace $workspace1"
+exec i3-msg "workspace $workspace4; exec urxvt; workspace $workspace1"
+exec i3-msg "workspace $workspace5; exec urxvt; workspace $workspace1"

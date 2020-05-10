@@ -7,7 +7,6 @@ URxvt*scrollTtyKeypress: true
 URxvt*iso14755: false
 URxvt*iso14755_52: false
 URxvt*fading: 25
-URxvt*loginShell: true
 
 ! URxvt Perl extensions
 URxvt.perl-ext-common: default,resize-font,selection-to-clipboard
