@@ -1,5 +1,5 @@
 ! URxvt base configuration
-URxvt.font: xft:Hack:style=regular:size=10,xft:PowerlineSymbols:style=Medium
+URxvt.font: xft:Hack:style=regular:size=9,xft:PowerlineSymbols:style=Medium
 URxvt.scrollBar: false
 URxvt*scrollTtyOutput: false
 URxvt*scrollWithBuffer: true
