@@ -37,3 +37,6 @@ Urxvt configuration preferences are stored in .Xresources. To reload the config:
 ```
 xrdb ~/.Xresources
 ```
+
+# Fonts
+It includes patched fonts from [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts).
