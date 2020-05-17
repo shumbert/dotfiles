@@ -40,3 +40,9 @@ xrdb ~/.Xresources
 
 # Fonts
 It includes patched fonts from [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts).
+
+# Gruvbox color scheme
+Check out those repos:
+- https://github.com/morhetz/gruvbox-contrib
+- https://github.com/morhetz/gruvbox
+- https://github.com/a-schaefers/i3-wm-gruvbox-theme/
