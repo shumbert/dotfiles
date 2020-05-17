@@ -7,6 +7,7 @@ Plug 'mhinz/vim-janah'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-syntastic/syntastic'
+Plug 'morhetz/gruvbox'
 call plug#end()
 
 if has("syntax")
@@ -67,8 +68,7 @@ set hidden             " Hide buffers when they are abandoned
 set laststatus=2
 
 " Colors!!
-autocmd ColorScheme janah highlight Normal ctermbg=235
-colorscheme janah
+autocmd vimenter * colorscheme gruvbox
 
 "
 " Configure plugins
