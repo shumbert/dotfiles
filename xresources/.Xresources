@@ -1,13 +1,12 @@
 ! URxvt base configuration
 URxvt.font: xft:Hack NF:style=Regular:size=10
-!URxvt.font: xft:Hack:style=regular:size=10,xft:PowerlineSymbols:style=Medium
 URxvt.scrollBar: false
 URxvt*scrollTtyOutput: false
 URxvt*scrollWithBuffer: true
 URxvt*scrollTtyKeypress: true
 URxvt*iso14755: false
 URxvt*iso14755_52: false
-URxvt*fading: 25
+URxvt*fading: 35
 
 ! URxvt Perl extensions
 URxvt.perl-ext-common: default,resize-font,selection-to-clipboard

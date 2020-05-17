@@ -12,7 +12,7 @@
 #
 # Some variables
 #
-set $mod   Mod4
+set $mod   Mod1
 set $left  j
 set $down  k
 set $up    l
@@ -229,6 +229,7 @@ exec_always xrandr --output HDMI-2 --off --output HDMI-1 --off --output DP-1 --o
 
 # At login
 exec xrdb -load ~/.Xresources
+exec xcompmgr -c -n
 
 exec ff personal
 exec ff browse
