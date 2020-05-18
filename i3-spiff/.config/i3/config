@@ -12,7 +12,7 @@
 #
 # Some variables
 #
-set $mod   Mod1
+set $mod   Mod4
 set $left  j
 set $down  k
 set $up    l
