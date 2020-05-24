@@ -13,10 +13,10 @@
 # Some variables
 #
 set $mod   Mod1
-set $left  j
-set $down  k
-set $up    l
-set $right semicolon
+set $left  h
+set $down  j
+set $up    k
+set $right l
 
 set $bg #282828
 set $red #cc241d
@@ -78,7 +78,7 @@ bindsym $mod+Shift+$up    move up
 bindsym $mod+Shift+$right move right
 
 # Split it
-bindsym $mod+h split h
+bindsym $mod+g split h
 bindsym $mod+v split v
 bindsym $mod+f fullscreen
 bindsym $mod+s layout stacking
