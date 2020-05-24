@@ -117,3 +117,6 @@ if [ -f /usr/share/virtualenvwrapper/virtualenvwrapper.sh ]; then
   export WORKON_HOME=$HOME/.virtualenvs
   source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 fi
+
+# We want neovim
+export EDITOR=nvim
