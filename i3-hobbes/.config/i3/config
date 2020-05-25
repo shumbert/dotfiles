@@ -13,10 +13,10 @@
 # Some variables
 #
 set $mod   Mod1
-set $left  j
-set $down  k
-set $up    l
-set $right semicolon
+set $left  h
+set $down  j
+set $up    k
+set $right l
 
 set $bg #282828
 set $red #cc241d
@@ -71,22 +71,14 @@ bindsym $mod+$left  focus left
 bindsym $mod+$down  focus down
 bindsym $mod+$up    focus up
 bindsym $mod+$right focus right
-bindsym $mod+Left   focus left
-bindsym $mod+Down   focus down
-bindsym $mod+Up     focus up
-bindsym $mod+Right  focus right
 
 bindsym $mod+Shift+$left  move left
 bindsym $mod+Shift+$down  move down
 bindsym $mod+Shift+$up    move up
 bindsym $mod+Shift+$right move right
-bindsym $mod+Shift+Left   move left
-bindsym $mod+Shift+Down   move down
-bindsym $mod+Shift+Up     move up
-bindsym $mod+Shift+Right  move right
 
 # Split it
-bindsym $mod+h split h
+bindsym $mod+g split h
 bindsym $mod+v split v
 bindsym $mod+f fullscreen
 bindsym $mod+s layout stacking
@@ -157,11 +149,6 @@ mode "resize" {
         bindsym $up resize shrink height 10 px or 10 ppt
         bindsym $right resize grow width 10 px or 10 ppt
 
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
@@ -225,7 +212,6 @@ for_window [class="Wicd-client.py"]       move scratchpad
 for_window [class="Org.gnome.gedit"]      move scratchpad
 
 for_window [class="Nm-connection-editor"] floating enable
-
 
 #
 # Start up stuff
