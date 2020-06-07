@@ -215,7 +215,7 @@ bar {
 #
 assign [class="VirtualBox"]         $workspace1
 assign [class="Firefox"]            $workspace7
-assign [class="Thunderbird"]        $workspace8
+assign [class="thunderbird"]        $workspace8
 assign [class="Wire"]               $workspace8
 assign [class="Nautilus"]           $workspace9
 for_window [class="Spotify"]        move to workspace $workspace10
