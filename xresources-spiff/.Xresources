@@ -9,13 +9,14 @@ URxvt*iso14755_52: false
 URxvt*fading: 35
 
 ! Change default bindings for copy/paste clipboard
-URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Insert: eval:paste_clipboard
 URxvt.keysym.Control-Meta-c: builtin-string:
 URxvt.keysym.Control-Meta-v: builtin-string:
 
 ! URxvt Perl extensions
-URxvt.perl-ext-common: default,resize-font,selection-to-clipboard,clipboard
+URxvt.perl-ext-common: default,resize-font,selection-to-clipboard
 URxvt.resize-font.smaller: C-Down
 URxvt.resize-font.bigger: C-Up
 
