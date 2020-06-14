@@ -226,9 +226,7 @@ exec ff personal
 exec ff browse
 exec /opt/thunderbird/thunderbird
 exec nemo
-#exec SpiderOakONE
-#exec virt-manager
-#exec spotify
+exec SpiderOakONE
 
 exec qtpass
 exec gedit
