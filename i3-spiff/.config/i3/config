@@ -60,7 +60,6 @@ set $workspace10 "10: "
 
 # Misc
 bindsym $mod+Shift+q kill
-bindsym $mod+d exec  dmenu_run -nb "$bg" -sb "$bg" -nf "$aqua" -sf "$purple"
 bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 bindsym $mod+Shift+c reload
@@ -120,10 +119,14 @@ bindsym $mod+Shift+greater move container to output right
 bindsym $mod+Shift+less move container to output left
 
 # Scratchpad
-bindsym $mod+Shift+minus move scratchpad
-bindsym $mod+minus scratchpad show
-bindsym $mod+p [class="Pavucontrol"] scratchpad show
-bindsym $mod+bracketright [class="Gedit"] scratchpad show
+bindsym $mod+Shift+minus                       move scratchpad
+bindsym $mod+minus                             scratchpad show
+bindsym $mod+p [class="QtPass"]                scratchpad show
+bindsym $mod+bracketleft [class="Pavucontrol"] scratchpad show
+bindsym $mod+bracketright [class="Gedit"]      scratchpad show
+
+# dmenu
+bindsym $mod+d exec dmenu_run -nb "$bg" -sb "$bg" -nf "$aqua" -sf "$purple"
 
 # Exec stuff
 bindsym $mod+Return  exec urxvt
@@ -209,6 +212,7 @@ assign [class="Virt-manager"]             $workspace8
 assign [class="VirtualBox"]               $workspace9
 for_window [class="Spotify"]              move to workspace $workspace10
 
+for_window [class="QtPass"]               move scratchpad
 for_window [class="Pavucontrol"]          move scratchpad
 for_window [class="Gedit"]                move scratchpad
 
@@ -235,6 +239,7 @@ exec virt-manager
 exec virtualbox
 exec spotify
 
+exec qtpass
 exec pavucontrol
 exec gedit
 
