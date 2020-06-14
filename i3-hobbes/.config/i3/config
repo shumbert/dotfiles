@@ -120,10 +120,10 @@ bindsym $mod+Shift+greater move container to output right
 bindsym $mod+Shift+less move container to output left
 
 # Scratchpad
-bindsym $mod+Shift+minus move scratchpad
-bindsym $mod+minus scratchpad show
-bindsym $mod+bracketleft [class="Pavucontrol"] scratchpad show
-bindsym $mod+bracketright [class="Org.gnome.gedit"] scratchpad show
+bindsym $mod+Shift+minus                       move scratchpad
+bindsym $mod+minus                             scratchpad show
+bindsym $mod+p [class="QtPass"]                scratchpad show
+bindsym $mod+bracketright [class="Gedit"]      scratchpad show
 
 # Exec stuff
 bindsym $mod+Return  exec urxvt
@@ -202,14 +202,13 @@ bar {
 # Assign properties to apps
 #
 assign [class="Firefox"]                  $workspace1
-assign [class="thunderbird"]              $workspace2
+assign [class="Thunderbird"]              $workspace2
 assign [class="Nemo"]                     $workspace3
 assign [class="SpiderOakONE"]             $workspace6
 for_window [class="Spotify"]              move to workspace $workspace10
 
-for_window [class="Pavucontrol"]          move scratchpad
-for_window [class="Wicd-client.py"]       move scratchpad
-for_window [class="Org.gnome.gedit"]      move scratchpad
+for_window [class="QtPass"]               move scratchpad
+for_window [class="Gedit"]                move scratchpad
 
 for_window [class="Nm-connection-editor"] floating enable
 
@@ -231,7 +230,7 @@ exec nemo
 #exec virt-manager
 #exec spotify
 
-exec pavucontrol
+exec qtpass
 exec gedit
 
 exec i3-msg "workspace $workspace4; exec urxvt; workspace $workspace1"
