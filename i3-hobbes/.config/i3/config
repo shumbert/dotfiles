@@ -224,7 +224,7 @@ exec xrdb -load ~/.Xresources
 
 exec ff personal
 exec ff browse
-exec /opt/thunderbird/thunderbird
+exec thunderbird
 exec nemo
 exec SpiderOakONE
 
