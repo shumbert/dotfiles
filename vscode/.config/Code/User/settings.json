@@ -1,0 +1,12 @@
+{
+    "go.useLanguageServer": true,
+    "python.languageServer": "Microsoft",
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "[python]": {
+            "editor.rulers": [
+            72,
+            79
+        ]
+    }
+}
