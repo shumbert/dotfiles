@@ -239,7 +239,7 @@ exec virt-manager
 exec virtualbox
 exec spotify
 
-exec Bitwarden-1.20.1-x86_64.AppImage --no-sandbox
+exec Bitwarden-1.22.1-x86_64.AppImage --no-sandbox
 exec pavucontrol
 exec gedit
 
