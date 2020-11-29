@@ -228,7 +228,7 @@ exec thunderbird
 exec nemo
 exec SpiderOakONE
 
-exec Bitwarden-1.23.0-x86_64.AppImage --no-sandbox
+exec bitwarden --no-sandbox
 exec gedit
 
 exec i3-msg "workspace $workspace4; exec urxvt; workspace $workspace1"
