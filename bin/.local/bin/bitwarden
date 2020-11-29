@@ -1,0 +1,3 @@
+#! /bin/sh
+
+$(ls $HOME/.local/bin/Bitwarden-*-x86_64.AppImage) --no-sandbox
