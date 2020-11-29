@@ -32,10 +32,10 @@ if [ -x "$(command -v go)" ]; then
 fi
 
 # Add path for firefox and thunderbird
-if [ -d "/opt/firefox" ] ; then
-    PATH="/opt/firefox:$PATH"
+if [ -d "$HOME/mozilla/firefox" ] ; then
+    PATH="$HOME/mozilla/firefox:$PATH"
 fi
 
-if [ -d "/opt/thunderbird" ] ; then
-    PATH="/opt/thunderbird:$PATH"
+if [ -d "$HOME/mozilla/thunderbird" ] ; then
+    PATH="$HOME/mozilla/thunderbird:$PATH"
 fi
