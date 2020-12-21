@@ -12,17 +12,21 @@
 #
 # Some variables
 #
-set $mod   Mod4
-set $left  j
-set $down  k
-set $up    l
-set $right semicolon
+set $mod   Mod1
+set $left  h
+set $down  j
+set $up    k
+set $right l
 
-set $bg-color            #2f343f
-set $inactive-bg-color   #2f343f
-set $urgent-bg-color     #e53935
-set $text-color          #f3f4f5
-set $inactive-text-color #676e7d
+set $bg #282828
+set $red #cc241d
+set $green #98971a
+set $yellow #d79921
+set $blue #458588
+set $purple #b16286
+set $aqua #689d68
+set $gray #a89984
+set $darkgray #1d2021
 
 set $i3lock "i3lock -c 000000"
 
@@ -40,26 +44,26 @@ workspace_auto_back_and_forth yes
 # Workspaces
 #
 set $workspace1  "1: "
-set $workspace2  "2: "
-set $workspace3  "3:"
-set $workspace4  "4:"
+set $workspace2  "2: "
+set $workspace3  "3: "
+set $workspace4  "4: "
 set $workspace5  "5:"
 set $workspace6  "6: "
-set $workspace7  "7: "
+set $workspace7  "7: "
 set $workspace8  "8: "
 set $workspace9  "9: "
 set $workspace10 "10: "
 
-workspace $workspace1  output DP-1
-workspace $workspace2  output DP-1
-workspace $workspace3  output DP-1
-workspace $workspace4  output DP-1
-workspace $workspace5  output DP-1
-workspace $workspace6  output DP-2
-workspace $workspace7  output DP-2
-workspace $workspace8  output DP-2
-workspace $workspace9  output DP-2
-workspace $workspace10 output DP-2
+#workspace $workspace1  output DP-1
+#workspace $workspace2  output DP-1
+#workspace $workspace3  output DP-1
+#workspace $workspace4  output DP-1
+#workspace $workspace5  output DP-1
+#workspace $workspace6  output DP-2
+#workspace $workspace7  output DP-2
+#workspace $workspace8  output DP-2
+#workspace $workspace9  output DP-2
+#workspace $workspace10 output DP-2
 
 #
 # Keyboard bindings
@@ -67,7 +71,7 @@ workspace $workspace10 output DP-2
 
 # Misc
 bindsym $mod+Shift+q kill
-bindsym $mod+d exec  dmenu_run -nb "$bg-color" -sb "$bg-color" -nf "$inactive-text-color" -sf "$text-color"
+bindsym $mod+d exec  dmenu_run -nb "$bg" -sb "$bg" -nf "$aqua" -sf "$purple"
 bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 bindsym $mod+Shift+c reload
@@ -78,22 +82,14 @@ bindsym $mod+$left  focus left
 bindsym $mod+$down  focus down
 bindsym $mod+$up    focus up
 bindsym $mod+$right focus right
-bindsym $mod+Left   focus left
-bindsym $mod+Down   focus down
-bindsym $mod+Up     focus up
-bindsym $mod+Right  focus right
 
 bindsym $mod+Shift+$left  move left
 bindsym $mod+Shift+$down  move down
 bindsym $mod+Shift+$up    move up
 bindsym $mod+Shift+$right move right
-bindsym $mod+Shift+Left   move left
-bindsym $mod+Shift+Down   move down
-bindsym $mod+Shift+Up     move up
-bindsym $mod+Shift+Right  move right
 
 # Split it
-bindsym $mod+h split h
+bindsym $mod+g split h
 bindsym $mod+v split v
 bindsym $mod+f fullscreen
 bindsym $mod+s layout stacking
@@ -131,10 +127,11 @@ bindsym $mod+Prior workspace prev
 bindsym $mod+Next  workspace next
 
 # Scratchpad
-bindsym $mod+Shift+minus move scratchpad
-bindsym $mod+minus scratchpad show
+bindsym $mod+Shift+minus                       move scratchpad
+bindsym $mod+minus                             scratchpad show
+bindsym $mod+p [class="Bitwarden"]             scratchpad show
 bindsym $mod+bracketleft [class="Pavucontrol"] scratchpad show
-bindsym $mod+bracketright [class="Gedit"] scratchpad show
+bindsym $mod+bracketright [class="Gedit"]      scratchpad show
 
 # Exec stuff
 bindsym $mod+Return  exec urxvt
@@ -142,15 +139,15 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+shift+x exec $i3lock
 
 # More fancy key bindings
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%    # increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%    # decrease sound volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
 bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute   0 toggle # mute sound
+#bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+#bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 bindsym XF86AudioPlay        exec playerctl play
 bindsym XF86AudioPause       exec playerctl pause
 bindsym XF86AudioNext        exec playerctl next
 bindsym XF86AudioPrev        exec playerctl previous
-#bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-#bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
 # Binding modes
 bindsym $mod+r mode "resize"
@@ -159,11 +156,6 @@ mode "resize" {
         bindsym $down resize grow height 10 px or 10 ppt
         bindsym $up resize shrink height 10 px or 10 ppt
         bindsym $right resize grow width 10 px or 10 ppt
-
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -186,10 +178,10 @@ mode "$mode_system" {
 # Colors
 #
 # State                 border             background         text                 indicator
-client.focused          $bg-color          $bg-color          $text-color          #00ff00
-client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
-client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
-client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color          #00ff00
+client.focused          $green $green $darkgray $purple $darkgray
+client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
+client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
+client.urgent           $red $red $white $red $red
 
 #
 # Status bar
@@ -200,12 +192,16 @@ bar {
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
         tray_output primary
         colors {
-                background $bg-color
-                separator  #757575
-                #                  border             background         text
-                focused_workspace  $bg-color          $bg-color          $text-color
-                inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-                urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+                # bar background color
+                background $bg
+                # text color used for blocks that do not have a color specified.
+                statusline $yellow
+                # workspaces section
+                #                    border  backgr. text
+                focused_workspace    $aqua $aqua $darkgray
+                inactive_workspace   $darkgray $darkgray $yellow
+                active_workspace     $darkgray $darkgray $yellow
+                urgent_workspace     $red $red $bg
         }
 }
 
@@ -215,19 +211,25 @@ bar {
 #
 assign [class="VirtualBox"]         $workspace1
 assign [class="Firefox"]            $workspace7
-assign [class="thunderbird"]        $workspace8
+assign [class="Thunderbird"]        $workspace8
 assign [class="Wire"]               $workspace8
-assign [class="Nautilus"]           $workspace9
+assign [class="Nemo"]               $workspace9
 for_window [class="Spotify"]        move to workspace $workspace10
+
+for_window [class="Bitwarden"]      move scratchpad
 for_window [class="Pavucontrol"]    move scratchpad
 for_window [class="Gedit"]          move scratchpad
+
+for_window [class="Nm-connection-editor"] floating enable
 
 #
 # Start up stuff
 #
 # Everytime i3 is (re)started
-exec_always feh --bg-scale /home/simal/.wallpaper.jpg
-exec_always xrandr --output HDMI-3 --off --output HDMI-2 --off --output HDMI-1 --off --output DP-3 --off --output DP-2 --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-1 --mode 1920x1080 --pos 0x0 --rotate normal
+exec_always feh --bg-scale /home/simon/.wallpaper.jpg
+exec_always nm-applet
+#exec_always xrandr --output HDMI-3 --off --output HDMI-2 --off --output HDMI-1 --off --output DP-3 --off --output DP-2 --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-1 --mode 1920x1080 --pos 0x0 --rotate normal
+exec_always xrandr --output HDMI-1 --off --output DP-1 --primary --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI-2 --off --output DP-2 --off --output HDMI-3 --off --output DP-3 --off
 
 # At login
 exec xrdb -load ~/.Xresources
@@ -238,11 +240,12 @@ exec ff personal
 exec ff lab
 exec thunderbird
 exec wire-desktop
-exec nautilus
+exec nemo
 exec spotify
 
+exec bitwarden
 exec pavucontrol
 exec gedit
 
-exec i3-msg "workspace $workspace2; exec urxvt; workspace $workspace1"
+exec i3-msg "workspace $workspace3; exec urxvt; workspace $workspace1"
 exec i3-msg "workspace $workspace6; exec urxvt; workspace $workspace1"
