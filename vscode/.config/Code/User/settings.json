@@ -1,4 +1,6 @@
 {
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
     "go.useLanguageServer": true,
     "python.languageServer": "Microsoft",
     "python.linting.enabled": true,
@@ -9,6 +11,11 @@
             79
         ]
     },
-    "files.insertFinalNewline": true,
-    "files.trimTrailingWhitespace": true
+    "[shellscript]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.rulers": [
+          80
+        ]
+    }
 }
