@@ -129,6 +129,7 @@ bindsym $mod+Next  workspace next
 # Scratchpad
 bindsym $mod+Shift+minus                       move scratchpad
 bindsym $mod+minus                             scratchpad show
+bindsym $mod+o [class="Typora"]                scratchpad show
 bindsym $mod+p [class="Bitwarden"]             scratchpad show
 bindsym $mod+bracketleft [class="Pavucontrol"] scratchpad show
 bindsym $mod+bracketright [class="Gedit"]      scratchpad show
@@ -216,6 +217,7 @@ assign [class="Wire"]               $workspace8
 assign [class="Nemo"]               $workspace9
 for_window [class="Spotify"]        move to workspace $workspace10
 
+for_window [class="Typora"]         move scratchpad
 for_window [class="Bitwarden"]      move scratchpad
 for_window [class="Pavucontrol"]    move scratchpad
 for_window [class="Gedit"]          move scratchpad
@@ -249,6 +251,7 @@ exec wire-desktop
 exec nemo
 exec spotify
 
+exec typora
 exec bitwarden
 exec pavucontrol
 exec gedit
