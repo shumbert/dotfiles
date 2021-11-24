@@ -129,6 +129,7 @@ bindsym $mod+Next  workspace next
 # Scratchpad
 bindsym $mod+Shift+minus                       move scratchpad
 bindsym $mod+minus                             scratchpad show
+bindsym $mod+o [class="Typora"]                scratchpad show
 bindsym $mod+p [class="Bitwarden"]             scratchpad show
 bindsym $mod+bracketleft [class="Pavucontrol"] scratchpad show
 bindsym $mod+bracketright [class="Gedit"]      scratchpad show
@@ -216,6 +217,7 @@ assign [class="Wire"]               $workspace8
 assign [class="Nemo"]               $workspace9
 for_window [class="Spotify"]        move to workspace $workspace10
 
+for_window [class="Typora"]         move scratchpad
 for_window [class="Bitwarden"]      move scratchpad
 for_window [class="Pavucontrol"]    move scratchpad
 for_window [class="Gedit"]          move scratchpad
@@ -223,13 +225,18 @@ for_window [class="Gedit"]          move scratchpad
 for_window [class="Nm-connection-editor"] floating enable
 
 #
+# Screenshots
+#
+bindsym --release Print exec scrot '%Y%m%d%H%M%S-screenshot.png' -e 'mkdir -p ~/Screenshots && mv $f ~/Screenshots && xclip -selection clipboard -t image/png -i ~/Screenshots/`ls -1 -t ~/Screenshots | head -1`'
+bindsym --release Shift+Print exec scrot -s '%Y%m%d%H%M%S-screenshot.png' -e 'mkdir -p ~/Screenshots && mv $f ~/Screenshots && xclip -selection clipboard -t image/png -i ~/Screenshots/`ls -1 -t ~/Screenshots | head -1`'
+
+#
 # Start up stuff
 #
 # Everytime i3 is (re)started
 exec_always feh --bg-scale /home/simon/.wallpaper.jpg
 exec_always nm-applet
-#exec_always xrandr --output HDMI-3 --off --output HDMI-2 --off --output HDMI-1 --off --output DP-3 --off --output DP-2 --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-1 --mode 1920x1080 --pos 0x0 --rotate normal
-exec_always xrandr --output HDMI-1 --off --output DP-1 --primary --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI-2 --off --output DP-2 --off --output HDMI-3 --off --output DP-3 --off
+exec_always xrandr --output HDMI-1 --off --output DP-1 --off --output HDMI-2 --off --output DP-2 --primary --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI-3 --off --output DP-3 --off
 
 # At login
 exec xrdb -load ~/.Xresources
@@ -243,6 +250,7 @@ exec wire-desktop
 exec nemo
 exec spotify
 
+exec typora
 exec bitwarden
 exec pavucontrol
 exec gedit
