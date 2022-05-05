@@ -121,7 +121,7 @@ bindsym $mod+Shift+less move container to output left
 # Scratchpad
 bindsym $mod+Shift+minus                       move scratchpad
 bindsym $mod+minus                             scratchpad show
-bindsym $mod+o [class="marktext"]                scratchpad show
+bindsym $mod+o [class="Typora"]                scratchpad show
 bindsym $mod+p [class="Bitwarden"]             scratchpad show
 bindsym $mod+bracketleft [class="Pavucontrol"] scratchpad show
 bindsym $mod+bracketright [class="Gedit"]      scratchpad show
@@ -213,7 +213,7 @@ assign [class="Virt-manager"]             $workspace8
 assign [class="VirtualBox"]               $workspace9
 for_window [class="Spotify"]              move to workspace $workspace10
 
-for_window [class="marktext"]               move scratchpad
+for_window [class="Typora"]               move scratchpad
 for_window [class="Bitwarden"]            move scratchpad
 for_window [class="Pavucontrol"]          move scratchpad
 for_window [class="Gedit"]                move scratchpad
@@ -247,7 +247,7 @@ exec virt-manager
 exec virtualbox
 exec spotify
 
-exec marktext
+exec typora
 exec bitwarden
 exec pavucontrol
 exec gedit
